@@ -1,3 +1,4 @@
+export * from "./backoffice/backoffice-admin-status";
 export * from "./application/application-status";
 export * from "./backoffice/backoffice-role";
 export * from "./company/company-role";

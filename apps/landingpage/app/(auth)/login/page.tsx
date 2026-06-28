@@ -8,7 +8,7 @@ export default function LoginPage() {
         </a>
         <h1 className="fj-title">Welcome back to your hiring workspace.</h1>
         <p className="fj-subtitle">
-          Demo login only. Use this screen to review layout, role switching, and the visual bridge between public,
+          Demo login only. Use this screen to review layout, account switching, and the visual bridge between public,
           seeker, and company experiences.
         </p>
         <div className="fj-stats">
@@ -27,8 +27,8 @@ export default function LoginPage() {
         </div>
       </section>
 
-      <section className="fj-auth-card">
-        <div className="fj-tabs" aria-label="Login role tabs">
+      <section className="fj-auth-card fj-login-card">
+        <div className="fj-tabs" aria-label="Login account tabs">
           <button className="fj-tab fj-tab-active">Job seeker</button>
           <button className="fj-tab">Company</button>
         </div>
@@ -43,11 +43,11 @@ export default function LoginPage() {
           </label>
           <button className="fj-button fj-button-primary" type="button">Login demo</button>
         </form>
-        <div className="fj-meta" style={{ marginTop: 18 }}>
+        <div className="fj-login-links">
           <a className="fj-button fj-button-outline" href="/register/job-seeker">Create seeker account</a>
           <a className="fj-button fj-button-outline" href="/register/company">Create company account</a>
         </div>
-        <p className="fj-muted" style={{ marginTop: 18 }}>
+        <p className="fj-auth-note">
           Backoffice login is separate at <a href="/backoffice/login">/backoffice/login</a>.
         </p>
       </section>

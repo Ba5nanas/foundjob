@@ -141,6 +141,19 @@
         "react-dom": "latest",
       },
     },
+    "services/backoffice-service": {
+      "name": "@foundjob/backoffice-service",
+      "version": "0.0.0",
+      "dependencies": {
+        "@foundjob/shared-auth": "workspace:*",
+        "@foundjob/shared-types": "workspace:*",
+      },
+      "devDependencies": {
+        "@types/node": "latest",
+        "typescript": "latest",
+        "vitest": "latest",
+      },
+    },
     "services/file-service": {
       "name": "@foundjob/file-service",
       "version": "0.0.0",
@@ -209,6 +222,8 @@
     "@emnapi/wasi-threads": ["@emnapi/wasi-threads@1.2.2", "", { "dependencies": { "tslib": "^2.4.0" } }, "sha512-c95qOXkHdydNKhscBTebqEC1CVAZpyqOfVfBzQ1qgzyl3gfeldUjIggDbIZgDKsHLgnsM+igH7TJ/eAasaVuMA=="],
 
     "@foundjob/backoffice": ["@foundjob/backoffice@workspace:apps/backoffice"],
+
+    "@foundjob/backoffice-service": ["@foundjob/backoffice-service@workspace:services/backoffice-service"],
 
     "@foundjob/contract-expire-worker": ["@foundjob/contract-expire-worker@workspace:workers/contract-expire-worker"],
 

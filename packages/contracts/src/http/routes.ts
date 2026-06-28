@@ -29,15 +29,22 @@ export const explicitNextRoutes = {
     "/api/seeker/resume/download"
   ],
   backoffice: [
-    "/api/admin/dashboard",
-    "/api/admin/users",
-    "/api/admin/users/[userId]",
-    "/api/admin/companies",
-    "/api/admin/jobs",
+    "/api/auth/login",
+    "/api/auth/logout",
+    "/api/auth/refresh",
+    "/api/admin/me",
+    "/api/admin/me/avatar",
+    "/api/admin/me/password",
+    "/api/admin/admin-users",
+    "/api/admin/admin-users/[adminUserId]",
+    "/api/admin/admin-users/[adminUserId]/suspend",
+    "/api/admin/admin-users/[adminUserId]/activate",
+    "/api/admin/admin-users/[adminUserId]/reset-password",
+    "/api/admin/admin-users/[adminUserId]/role",
     "/api/admin/roles",
+    "/api/admin/roles/[roleId]",
     "/api/admin/roles/[roleId]/permissions",
-    "/api/admin/settings",
-    "/api/admin/files",
+    "/api/admin/permissions",
     "/api/admin/audit-logs"
   ]
 } as const;

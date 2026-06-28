@@ -1,0 +1,5 @@
+enum BackofficeAdminStatus {
+  ACTIVE
+  SUSPENDED
+  DELETED
+}

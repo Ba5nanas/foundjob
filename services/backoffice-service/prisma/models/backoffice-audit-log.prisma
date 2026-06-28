@@ -1,0 +1,17 @@
+model BackofficeAuditLog {
+  id          String   @id @default(uuid())
+  adminUserId String?
+  action      String
+  resource    String
+  resourceId  String?
+  before      Json?
+  after       Json?
+  ipAddress   String?
+  userAgent   String?
+  createdAt   DateTime @default(now())
+
+  @@index([adminUserId])
+  @@index([action])
+  @@index([resource])
+  @@index([createdAt])
+}

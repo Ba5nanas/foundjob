@@ -1,14 +1,21 @@
 import { Search, SlidersHorizontal } from "lucide-react";
+import type { ReactNode } from "react";
 
 const navItems = [
   ["Dashboard", "/backoffice/admin/dashboard"],
-  ["Users", "/backoffice/admin/users"],
+  ["Platform users", "/backoffice/admin/users"],
+  ["Admin users", "/backoffice/admin/admin-users"],
   ["Companies", "/backoffice/admin/companies"],
   ["Jobs", "/backoffice/admin/jobs"],
   ["Applications", "/backoffice/admin/applications"],
+  ["Appointments", "/backoffice/admin/appointments"],
+  ["Packages", "/backoffice/admin/packages"],
   ["Roles", "/backoffice/admin/roles"],
+  ["Permissions", "/backoffice/admin/permissions"],
   ["Files", "/backoffice/admin/files"],
-  ["Audit logs", "/backoffice/admin/audit-logs"]
+  ["Audit logs", "/backoffice/admin/audit-logs"],
+  ["Settings", "/backoffice/admin/settings"],
+  ["My account", "/backoffice/admin/account"]
 ] as const;
 
 const metrics = [
@@ -25,7 +32,15 @@ const jobs = [
   ["Finance Analyst", "LedgerWorks", "PAUSED", "PERMANENT", "-"]
 ] as const;
 
-export function BackofficeDemo({ title = "Operations dashboard", section = "Dashboard" }: { title?: string; section?: string }) {
+export function BackofficeDemo({
+  title = "Operations dashboard",
+  section = "Dashboard",
+  children
+}: {
+  title?: string;
+  section?: string;
+  children?: ReactNode;
+}) {
   return (
     <main className="bo-shell">
       <aside className="bo-sidebar">
@@ -35,7 +50,7 @@ export function BackofficeDemo({ title = "Operations dashboard", section = "Dash
         </a>
         <nav className="bo-nav" aria-label="Backoffice navigation">
           {navItems.map(([label, href]) => (
-            <a href={href} key={label}>{label}</a>
+            <a className={label === section ? "bo-nav-active" : undefined} href={href} key={label}>{label}</a>
           ))}
         </nav>
       </aside>
@@ -53,6 +68,8 @@ export function BackofficeDemo({ title = "Operations dashboard", section = "Dash
         </header>
 
         <div className="bo-content">
+          {children ?? (
+          <>
           <section className="bo-grid-4">
             {metrics.map(([label, value, change]) => (
               <article className="bo-card bo-card-pad" key={label}>
@@ -131,6 +148,8 @@ export function BackofficeDemo({ title = "Operations dashboard", section = "Dash
               </tbody>
             </table>
           </article>
+          </>
+          )}
         </div>
       </section>
     </main>

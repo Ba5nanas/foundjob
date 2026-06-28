@@ -1,0 +1,20 @@
+model BackofficeAdminUser {
+  id                String                @id @default(uuid())
+  email             String                @unique
+  passwordHash      String
+  fullName          String
+  avatarFileId      String?
+  status            BackofficeAdminStatus @default(ACTIVE)
+  roleId            String
+  lastLoginAt       DateTime?
+  passwordChangedAt DateTime?
+  createdByAdminId  String?
+  updatedByAdminId  String?
+  createdAt         DateTime              @default(now())
+  updatedAt         DateTime              @updatedAt
+  deletedAt         DateTime?
+
+  @@index([email])
+  @@index([status])
+  @@index([roleId])
+}

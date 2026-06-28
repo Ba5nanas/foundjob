@@ -11,7 +11,7 @@ export const backofficeRoleLevels: Record<BackofficeRole, number> = {
   [BackofficeRole.SUPERADMIN]: 100,
   [BackofficeRole.ADMIN]: 80,
   [BackofficeRole.SUPPORT]: 40,
-  [BackofficeRole.CONTENT_MANAGER]: 40,
-  [BackofficeRole.FINANCE]: 40,
+  [BackofficeRole.CONTENT_MANAGER]: 50,
+  [BackofficeRole.FINANCE]: 60,
   [BackofficeRole.VIEWER]: 10
 };

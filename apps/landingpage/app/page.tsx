@@ -1,8 +1,9 @@
-import { ArrowRight, Banknote, BriefcaseBusiness, Building2, Clock3, MapPin } from "lucide-react";
+import { ArrowRight, Banknote, BriefcaseBusiness, Building2, Clock3, MapPin, UserRound } from "lucide-react";
 
 const featuredJobs = [
   {
     title: "Frontend Developer",
+    slug: "frontend-developer",
     company: "Northstar Labs",
     initials: "NL",
     location: "Bangkok",
@@ -13,6 +14,7 @@ const featuredJobs = [
   },
   {
     title: "Product Designer",
+    slug: "product-designer",
     company: "Blue Harbor",
     initials: "BH",
     location: "Remote",
@@ -23,6 +25,7 @@ const featuredJobs = [
   },
   {
     title: "Backend Engineer",
+    slug: "backend-engineer",
     company: "Foundry Cloud",
     initials: "FC",
     location: "Hybrid",
@@ -41,9 +44,9 @@ const categories = [
 ];
 
 const companies = [
-  ["Northstar Labs", "SaaS platform", "18 open roles"],
-  ["Blue Harbor", "Financial technology", "7 open roles"],
-  ["Foundry Cloud", "Infrastructure", "11 open roles"]
+  ["Northstar Labs", "SaaS platform", "18 open jobs"],
+  ["Blue Harbor", "Financial technology", "7 open jobs"],
+  ["Foundry Cloud", "Infrastructure", "11 open jobs"]
 ];
 
 export default function HomePage() {
@@ -71,7 +74,7 @@ export default function HomePage() {
       <section className="fj-container fj-hero">
         <div>
           <span className="fj-kicker">Trusted job marketplace for Thailand teams</span>
-          <h1 className="fj-title">Jobs that show the role, contract, and hiring path clearly.</h1>
+          <h1 className="fj-title">Jobs that show the title, contract, and hiring details clearly.</h1>
           <p className="fj-subtitle">
             A clean FoundJob demo for seekers, company users, and backoffice operators. This screen uses mock data only,
             so the frontend and admin experience can be reviewed before API work starts.
@@ -79,8 +82,8 @@ export default function HomePage() {
 
           <div className="fj-search-panel" aria-label="Job search demo">
             <label className="fj-field">
-              <span>Role</span>
-              <input placeholder="Frontend, Designer, Finance" />
+              <span>Job title</span>
+              <input placeholder="Frontend Developer, Product Designer" />
             </label>
             <label className="fj-field">
               <span>Location</span>
@@ -105,10 +108,10 @@ export default function HomePage() {
           </div>
         </div>
 
-        <aside className="fj-hero-card" aria-label="Featured job preview">
+        <aside className="fj-hero-card fj-featured-jobs" aria-label="Featured job preview">
           <div className="fj-hero-card-header">
             <div>
-              <p className="fj-muted">Featured roles</p>
+              <p className="fj-muted">Featured jobs</p>
               <h2 className="fj-card-title">Recommended this week</h2>
             </div>
             <span className="fj-badge fj-badge-premium">Demo</span>
@@ -120,11 +123,13 @@ export default function HomePage() {
                   <div className="fj-card-row-main">
                     <div className="fj-logo">{job.initials}</div>
                     <div>
-                      <h3 className="fj-card-title">{job.title}</h3>
+                      <h3 className="fj-card-title">
+                        <a className="fj-title-link" href={`/jobs/${job.slug}`}>{job.title}</a>
+                      </h3>
                       <p className="fj-muted">{job.company}</p>
                     </div>
                   </div>
-                  <a className="fj-outline-icon" href="/jobs" aria-label={`View ${job.title}`}>
+                  <a className="fj-outline-icon" href={`/jobs/${job.slug}`} aria-label={`View ${job.title}`}>
                     <ArrowRight />
                   </a>
                 </div>
@@ -181,17 +186,27 @@ export default function HomePage() {
       </section>
 
       <section className="fj-container fj-section">
-        <div className="fj-two-col">
-          <article className="fj-card">
-            <span className="fj-badge fj-badge-permanent">For job seekers</span>
-            <h2 className="fj-section-title">Track every application from apply to hire.</h2>
-            <p className="fj-subtitle">Preview the seeker dashboard with applications, appointments, resumes, and offer status.</p>
+        <div className="fj-home-cta-grid">
+          <article className="fj-card fj-home-cta-card">
+            <div>
+              <div className="fj-home-cta-eyebrow">
+                <span className="fj-outline-icon"><UserRound /></span>
+                <span>For job seekers</span>
+              </div>
+              <h2 className="fj-section-title">Track every application from apply to hire.</h2>
+              <p className="fj-card-copy">Preview the seeker dashboard with applications, appointments, resumes, and offer status.</p>
+            </div>
             <a className="fj-button fj-button-primary" href="/seeker/dashboard">Open seeker demo</a>
           </article>
-          <article className="fj-card">
-            <span className="fj-badge fj-badge-contract">For companies</span>
-            <h2 className="fj-section-title">Manage jobs, applicants, contracts, and employee records.</h2>
-            <p className="fj-subtitle">Preview the company workspace before API integration starts.</p>
+          <article className="fj-card fj-home-cta-card">
+            <div>
+              <div className="fj-home-cta-eyebrow">
+                <span className="fj-outline-icon"><Building2 /></span>
+                <span>For companies</span>
+              </div>
+              <h2 className="fj-section-title">Manage jobs, applicants, contracts, and employee records.</h2>
+              <p className="fj-card-copy">Preview the company workspace before API integration starts.</p>
+            </div>
             <a className="fj-button fj-button-primary" href="/company/dashboard">Open company demo</a>
           </article>
         </div>

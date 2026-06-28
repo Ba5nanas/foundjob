@@ -1,0 +1,23 @@
+{
+  "name": "@foundjob/backoffice-service",
+  "private": true,
+  "version": "0.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "lint": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run src",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "seed:superadmin": "bun src/seeding/seed-superadmin.ts",
+    "prisma:seed": "bun src/seeding/seed-superadmin.ts"
+  },
+  "dependencies": {
+    "@foundjob/shared-auth": "workspace:*",
+    "@foundjob/shared-types": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "typescript": "latest",
+    "vitest": "latest"
+  }
+}

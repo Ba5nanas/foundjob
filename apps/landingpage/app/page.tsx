@@ -1,3 +1,5 @@
+import { ArrowRight, Banknote, BriefcaseBusiness, Building2, Clock3, MapPin } from "lucide-react";
+
 const featuredJobs = [
   {
     title: "Frontend Developer",
@@ -113,18 +115,24 @@ export default function HomePage() {
           </div>
           <div className="fj-card-stack">
             {featuredJobs.map((job) => (
-              <article className="fj-job-card" key={job.title}>
-                <div className="fj-logo">{job.initials}</div>
-                <div>
-                  <h3 className="fj-card-title">{job.title}</h3>
-                  <p className="fj-muted">{job.company} - {job.location}</p>
-                  <div className="fj-meta">
-                    <span className={job.type === "CONTRACT" ? "fj-badge fj-badge-contract" : "fj-badge fj-badge-permanent"}>
-                      {job.type}
-                    </span>
-                    {job.duration ? <span className="fj-badge">{job.duration}</span> : null}
-                    <span className="fj-badge">{job.salary}</span>
+              <article className="fj-role-card" key={job.title}>
+                <div className="fj-role-card-head">
+                  <div className="fj-card-row-main">
+                    <div className="fj-logo">{job.initials}</div>
+                    <div>
+                      <h3 className="fj-card-title">{job.title}</h3>
+                      <p className="fj-muted">{job.company}</p>
+                    </div>
                   </div>
+                  <a className="fj-outline-icon" href="/jobs" aria-label={`View ${job.title}`}>
+                    <ArrowRight />
+                  </a>
+                </div>
+                <div className="fj-icon-meta">
+                  <span className="fj-icon-line"><MapPin />{job.location}</span>
+                  <span className="fj-icon-line"><BriefcaseBusiness />{job.type === "CONTRACT" ? "Contract" : "Permanent"}</span>
+                  {job.duration ? <span className="fj-icon-line"><Clock3 />{job.duration}</span> : null}
+                  <span className="fj-icon-line"><Banknote />{job.salary}</span>
                 </div>
               </article>
             ))}
@@ -166,7 +174,7 @@ export default function HomePage() {
                 <h3 className="fj-card-title">{name}</h3>
                 <p className="fj-muted">{industry}</p>
               </div>
-              <span className="fj-badge fj-badge-contract">{roles}</span>
+              <span className="fj-icon-line"><Building2 />{roles}</span>
             </article>
           ))}
         </div>

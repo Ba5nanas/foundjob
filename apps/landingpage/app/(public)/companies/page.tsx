@@ -1,3 +1,5 @@
+import { BriefcaseBusiness, MapPin } from "lucide-react";
+
 const companies = [
   ["Northstar Labs", "SaaS platform", "Bangkok", "18 active jobs"],
   ["Blue Harbor", "Financial technology", "Remote first", "7 active jobs"],
@@ -30,9 +32,12 @@ export default function CompaniesPage() {
               <div className="fj-company-cover" />
               <div>
                 <h2 className="fj-card-title">{name}</h2>
-                <p className="fj-muted">{industry} - {location}</p>
+                <p className="fj-muted">{industry}</p>
               </div>
-              <span className="fj-badge fj-badge-contract">{roles}</span>
+              <div className="fj-icon-meta">
+                <span className="fj-icon-line"><MapPin />{location}</span>
+                <span className="fj-icon-line"><BriefcaseBusiness />{roles}</span>
+              </div>
             </article>
           ))}
         </div>

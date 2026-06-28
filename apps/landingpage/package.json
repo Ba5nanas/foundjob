@@ -17,6 +17,7 @@
     "@foundjob/shared-dto": "workspace:*",
     "@foundjob/shared-types": "workspace:*",
     "@foundjob/ui": "workspace:*",
+    "lucide-react": "latest",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",

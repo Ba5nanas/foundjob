@@ -1,3 +1,5 @@
+import { Search, SlidersHorizontal } from "lucide-react";
+
 const navItems = [
   ["Dashboard", "/backoffice/admin/dashboard"],
   ["Users", "/backoffice/admin/users"],
@@ -99,7 +101,14 @@ export function BackofficeDemo({ title = "Operations dashboard", section = "Dash
             </div>
             <div className="bo-filterbar">
               <input className="bo-input" placeholder="Search jobs or companies" />
-              <select className="bo-input"><option>All statuses</option><option>Open</option><option>Filled</option></select>
+              <div className="bo-combobox" role="button" tabIndex={0} aria-label="Status filter">
+                <span className="bo-chip">All statuses</span>
+              </div>
+              <div className="bo-combobox" role="button" tabIndex={0} aria-label="Type filter">
+                <span className="bo-chip">Contract</span>
+              </div>
+              <button className="bo-button" type="button"><Search /> Filter</button>
+              <span className="bo-icon-line"><SlidersHorizontal />Filterable table</span>
             </div>
           </section>
 

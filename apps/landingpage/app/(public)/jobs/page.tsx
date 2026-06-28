@@ -1,3 +1,5 @@
+import { BriefcaseBusiness, Building2, Clock3, MapPin, Search, Users } from "lucide-react";
+
 const jobs = [
   ["Frontend Developer", "Northstar Labs", "Bangkok", "CONTRACT", "6 months", "12 applicants"],
   ["Product Designer", "Blue Harbor", "Remote", "PERMANENT", "Full time", "8 applicants"],
@@ -31,21 +33,46 @@ export default function JobsPage() {
             <div className="fj-form">
               <label className="fj-label">Keyword<input className="fj-input" placeholder="Role or skill" /></label>
               <label className="fj-label">Location<input className="fj-input" placeholder="Bangkok, Remote" /></label>
-              <label className="fj-label">Employment<select className="fj-input"><option>Any</option><option>Permanent</option><option>Contract</option></select></label>
+              <label className="fj-label">
+                Employment
+                <div className="fj-combobox" role="button" tabIndex={0} aria-label="Employment filter">
+                  <div className="fj-combobox-field">
+                    <span className="fj-chip">Permanent</span>
+                    <span className="fj-chip">Contract</span>
+                  </div>
+                </div>
+              </label>
+              <label className="fj-label">
+                Skills
+                <div className="fj-combobox" role="button" tabIndex={0} aria-label="Skill filter">
+                  <div className="fj-combobox-field">
+                    <span className="fj-chip">React</span>
+                    <span className="fj-chip">NestJS</span>
+                  </div>
+                </div>
+              </label>
+              <button className="fj-button fj-button-primary" type="button"><Search /> Filter jobs</button>
             </div>
           </aside>
           <section className="fj-card-stack">
             {jobs.map(([title, company, location, type, duration, applicants]) => (
-              <article className="fj-job-card" key={title}>
-                <div className="fj-logo">{company.slice(0, 2).toUpperCase()}</div>
-                <div>
-                  <h2 className="fj-card-title">{title}</h2>
-                  <p className="fj-muted">{company} - {location}</p>
-                  <div className="fj-meta">
-                    <span className={type === "CONTRACT" ? "fj-badge fj-badge-contract" : "fj-badge fj-badge-permanent"}>{type}</span>
-                    <span className="fj-badge">{duration}</span>
-                    <span className="fj-badge">{applicants}</span>
+              <article className="fj-role-card" key={title}>
+                <div className="fj-role-card-head">
+                  <div className="fj-card-row-main">
+                    <div className="fj-logo">{company.slice(0, 2).toUpperCase()}</div>
+                    <div>
+                      <h2 className="fj-card-title">{title}</h2>
+                      <p className="fj-muted">{company}</p>
+                    </div>
                   </div>
+                  <span className="fj-outline-icon"><BriefcaseBusiness /></span>
+                </div>
+                <div className="fj-icon-meta">
+                  <span className="fj-icon-line"><Building2 />{company}</span>
+                  <span className="fj-icon-line"><MapPin />{location}</span>
+                  <span className="fj-icon-line"><Clock3 />{duration}</span>
+                  <span className="fj-icon-line"><Users />{applicants}</span>
+                  <span className="fj-icon-line"><BriefcaseBusiness />{type === "CONTRACT" ? "Contract role" : "Permanent role"}</span>
                 </div>
               </article>
             ))}

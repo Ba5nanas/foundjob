@@ -1,3 +1,65 @@
+import { BriefcaseBusiness, Clock3 } from "lucide-react";
+
+const openRoles = [
+  ["Frontend Developer", "CONTRACT", "6 months"],
+  ["Backend Engineer", "CONTRACT", "12 months"],
+  ["Product Designer", "PERMANENT", "Full time"]
+] as const;
+
 export default function CompanyPage({ params }: { params: { companyId: string } }) {
-  return <main className="mx-auto max-w-[960px] px-4 py-10 md:px-8"><h1 className="text-3xl font-bold">Company {params.companyId}</h1></main>;
+  return (
+    <main className="fj-page">
+      <header className="fj-topbar">
+        <nav className="fj-container fj-nav">
+          <a className="fj-brand" href="/"><span className="fj-brand-mark">FJ</span><span>FoundJob</span></a>
+          <div className="fj-nav-actions">
+            <a className="fj-button fj-button-outline" href="/companies">Back to companies</a>
+            <a className="fj-button fj-button-primary" href="/jobs">View jobs</a>
+          </div>
+        </nav>
+      </header>
+      <section className="fj-container fj-section">
+        <article className="fj-card">
+          <div className="fj-company-cover" />
+          <div className="fj-card-row" style={{ marginTop: 16 }}>
+            <div className="fj-card-row-main">
+              <div className="fj-logo">NL</div>
+              <div>
+                <span className="fj-badge">Company ID: {params.companyId}</span>
+                <h1 className="fj-section-title">Northstar Labs</h1>
+                <p className="fj-muted">SaaS platform - Bangkok / Remote - 240 employees</p>
+              </div>
+            </div>
+            <span className="fj-badge fj-badge-permanent">Verified company</span>
+          </div>
+        </article>
+        <div className="fj-page-grid" style={{ marginTop: 16 }}>
+          <article className="fj-card">
+            <h2 className="fj-card-title">About</h2>
+            <p className="fj-subtitle" style={{ marginTop: 8 }}>Northstar Labs builds workflow tools for teams that need reliable hiring, audit logs, and clear collaboration across departments.</p>
+          </article>
+          <aside className="fj-card">
+            <h2 className="fj-card-title">Open roles</h2>
+            <div className="fj-list" style={{ marginTop: 16 }}>
+              {openRoles.map(([role, type, duration]) => (
+                <div className="fj-role-card" key={role}>
+                  <div className="fj-role-card-head">
+                    <div>
+                      <strong>{role}</strong>
+                      <p className="fj-muted" style={{ margin: "4px 0 0" }}>Open position</p>
+                    </div>
+                    <span className="fj-outline-icon"><BriefcaseBusiness /></span>
+                  </div>
+                  <div className="fj-icon-meta">
+                    <span className="fj-icon-line"><BriefcaseBusiness />{type === "CONTRACT" ? "Contract role" : "Permanent role"}</span>
+                    <span className="fj-icon-line"><Clock3 />{duration}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+  );
 }

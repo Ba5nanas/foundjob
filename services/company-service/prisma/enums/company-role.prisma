@@ -1,0 +1,5 @@
+enum CompanyRole {
+  OWNER
+  STAFF
+  EMPLOYEE
+}

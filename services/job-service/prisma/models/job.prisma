@@ -1,0 +1,20 @@
+model Job {
+  id                     String         @id @default(cuid())
+  companyId              String
+  title                  String
+  description            String
+  requiredHeadcount      Int
+  hiredCount             Int            @default(0)
+  status                 JobStatus      @default(DRAFT)
+  employmentType         EmploymentType
+  contractDurationMonths Int?
+  salaryMin              Int?
+  salaryMax              Int?
+  location               String?
+  createdByUserId        String
+  createdAt              DateTime       @default(now())
+  updatedAt              DateTime       @updatedAt
+
+  @@index([companyId, status])
+  @@index([employmentType])
+}

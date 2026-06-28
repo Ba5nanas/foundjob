@@ -1,0 +1,51 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": [
+      "ES2022",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "types": [
+      "node"
+    ],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "noUncheckedIndexedAccess": true,
+    "ignoreDeprecations": "6.0",
+    "baseUrl": ".",
+    "paths": {
+      "@foundjob/contracts": [
+        "packages/contracts/dist/index.d.ts"
+      ],
+      "@foundjob/shared-types": [
+        "packages/shared-types/dist/index.d.ts"
+      ],
+      "@foundjob/shared-dto": [
+        "packages/shared-dto/dist/index.d.ts"
+      ],
+      "@foundjob/shared-config": [
+        "packages/shared-config/dist/index.d.ts"
+      ],
+      "@foundjob/shared-utils": [
+        "packages/shared-utils/dist/index.d.ts"
+      ],
+      "@foundjob/shared-auth": [
+        "packages/shared-auth/dist/index.d.ts"
+      ],
+      "@foundjob/shared-api-client": [
+        "packages/shared-api-client/dist/index.d.ts"
+      ],
+      "@foundjob/ui": [
+        "packages/ui/dist/index.d.ts"
+      ]
+    }
+  }
+}

@@ -1,0 +1,22 @@
+model CompanyEmployee {
+  id                     String         @id @default(cuid())
+  companyId              String
+  userId                 String
+  sourceJobId            String
+  sourceApplicationId    String
+  employmentType         EmploymentType
+  contractDurationMonths Int?
+  contractStartDate      DateTime?
+  contractEndDate        DateTime?
+  hiredAt                DateTime
+  status                 EmployeeStatus @default(ACTIVE)
+  createdByUserId        String
+  createdAt              DateTime       @default(now())
+  updatedAt              DateTime       @updatedAt
+
+  company Company @relation(fields: [companyId], references: [id])
+
+  @@unique([sourceApplicationId])
+  @@index([companyId, status])
+  @@index([contractEndDate])
+}

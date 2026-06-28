@@ -1,0 +1,6 @@
+enum EmployeeStatus {
+  ACTIVE
+  ENDED
+  REMOVED
+  CONTRACT_EXPIRED
+}

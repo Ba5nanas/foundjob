@@ -1,0 +1,27 @@
+{
+  "name": "foundjob",
+  "private": true,
+  "description": "FoundJob production-ready job board monorepo.",
+  "packageManager": "bun@1.3.14",
+  "scripts": {
+    "dev": "turbo run dev --parallel",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "typecheck": "turbo run typecheck",
+    "format": "turbo run format",
+    "docker:dev": "docker compose -f compose.dev.yml up --build",
+    "docker:prod": "docker compose -f compose.prod.yml up --build"
+  },
+  "workspaces": [
+    "apps/*",
+    "services/*",
+    "workers/*",
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@types/node": "latest",
+    "turbo": "latest",
+    "typescript": "latest"
+  }
+}

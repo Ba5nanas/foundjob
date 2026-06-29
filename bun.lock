@@ -141,6 +141,33 @@
         "react-dom": "latest",
       },
     },
+    "services/application-service": {
+      "name": "@foundjob/application-service",
+      "version": "0.0.0",
+      "devDependencies": {
+        "@types/node": "latest",
+        "typescript": "latest",
+        "vitest": "latest",
+      },
+    },
+    "services/appointment-service": {
+      "name": "@foundjob/appointment-service",
+      "version": "0.0.0",
+      "devDependencies": {
+        "@types/node": "latest",
+        "typescript": "latest",
+        "vitest": "latest",
+      },
+    },
+    "services/auth-service": {
+      "name": "@foundjob/auth-service",
+      "version": "0.0.0",
+      "devDependencies": {
+        "@types/node": "latest",
+        "typescript": "latest",
+        "vitest": "latest",
+      },
+    },
     "services/backoffice-service": {
       "name": "@foundjob/backoffice-service",
       "version": "0.0.0",
@@ -148,6 +175,15 @@
         "@foundjob/shared-auth": "workspace:*",
         "@foundjob/shared-types": "workspace:*",
       },
+      "devDependencies": {
+        "@types/node": "latest",
+        "typescript": "latest",
+        "vitest": "latest",
+      },
+    },
+    "services/company-service": {
+      "name": "@foundjob/company-service",
+      "version": "0.0.0",
       "devDependencies": {
         "@types/node": "latest",
         "typescript": "latest",
@@ -172,6 +208,15 @@
         "vitest": "latest",
       },
     },
+    "services/job-service": {
+      "name": "@foundjob/job-service",
+      "version": "0.0.0",
+      "devDependencies": {
+        "@types/node": "latest",
+        "typescript": "latest",
+        "vitest": "latest",
+      },
+    },
     "services/main-control": {
       "name": "@foundjob/main-control",
       "version": "0.0.0",
@@ -183,6 +228,33 @@
         "reflect-metadata": "latest",
         "rxjs": "latest",
       },
+      "devDependencies": {
+        "@types/node": "latest",
+        "typescript": "latest",
+        "vitest": "latest",
+      },
+    },
+    "services/package-service": {
+      "name": "@foundjob/package-service",
+      "version": "0.0.0",
+      "devDependencies": {
+        "@types/node": "latest",
+        "typescript": "latest",
+        "vitest": "latest",
+      },
+    },
+    "services/resume-service": {
+      "name": "@foundjob/resume-service",
+      "version": "0.0.0",
+      "devDependencies": {
+        "@types/node": "latest",
+        "typescript": "latest",
+        "vitest": "latest",
+      },
+    },
+    "services/user-service": {
+      "name": "@foundjob/user-service",
+      "version": "0.0.0",
       "devDependencies": {
         "@types/node": "latest",
         "typescript": "latest",
@@ -221,9 +293,17 @@
 
     "@emnapi/wasi-threads": ["@emnapi/wasi-threads@1.2.2", "", { "dependencies": { "tslib": "^2.4.0" } }, "sha512-c95qOXkHdydNKhscBTebqEC1CVAZpyqOfVfBzQ1qgzyl3gfeldUjIggDbIZgDKsHLgnsM+igH7TJ/eAasaVuMA=="],
 
+    "@foundjob/application-service": ["@foundjob/application-service@workspace:services/application-service"],
+
+    "@foundjob/appointment-service": ["@foundjob/appointment-service@workspace:services/appointment-service"],
+
+    "@foundjob/auth-service": ["@foundjob/auth-service@workspace:services/auth-service"],
+
     "@foundjob/backoffice": ["@foundjob/backoffice@workspace:apps/backoffice"],
 
     "@foundjob/backoffice-service": ["@foundjob/backoffice-service@workspace:services/backoffice-service"],
+
+    "@foundjob/company-service": ["@foundjob/company-service@workspace:services/company-service"],
 
     "@foundjob/contract-expire-worker": ["@foundjob/contract-expire-worker@workspace:workers/contract-expire-worker"],
 
@@ -239,11 +319,17 @@
 
     "@foundjob/job-expire-worker": ["@foundjob/job-expire-worker@workspace:workers/job-expire-worker"],
 
+    "@foundjob/job-service": ["@foundjob/job-service@workspace:services/job-service"],
+
     "@foundjob/landingpage": ["@foundjob/landingpage@workspace:apps/landingpage"],
 
     "@foundjob/main-control": ["@foundjob/main-control@workspace:services/main-control"],
 
     "@foundjob/notification-worker": ["@foundjob/notification-worker@workspace:workers/notification-worker"],
+
+    "@foundjob/package-service": ["@foundjob/package-service@workspace:services/package-service"],
+
+    "@foundjob/resume-service": ["@foundjob/resume-service@workspace:services/resume-service"],
 
     "@foundjob/shared-api-client": ["@foundjob/shared-api-client@workspace:packages/shared-api-client"],
 
@@ -260,6 +346,8 @@
     "@foundjob/tsconfig": ["@foundjob/tsconfig@workspace:packages/tsconfig"],
 
     "@foundjob/ui": ["@foundjob/ui@workspace:packages/ui"],
+
+    "@foundjob/user-service": ["@foundjob/user-service@workspace:services/user-service"],
 
     "@img/colour": ["@img/colour@1.1.0", "", {}, "sha512-Td76q7j57o/tLVdgS746cYARfSyxk8iEfRxewL9h4OMzYhbW4TAcppl0mT4eyqXddh6L/jwoM75mo7ixa/pCeQ=="],
 

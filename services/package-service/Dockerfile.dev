@@ -1,0 +1,11 @@
+FROM oven/bun:latest
+
+WORKDIR /app
+COPY package.json bun.lock* ./
+COPY services/package-service/package.json services/package-service/package.json
+COPY packages packages
+RUN bun install
+
+COPY . .
+WORKDIR /app/services/package-service
+CMD ["bun", "run", "dev"]

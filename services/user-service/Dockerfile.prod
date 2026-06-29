@@ -1,0 +1,17 @@
+FROM oven/bun:latest AS deps
+WORKDIR /app
+COPY package.json bun.lock* ./
+COPY services/user-service/package.json services/user-service/package.json
+COPY packages packages
+RUN bun install --frozen-lockfile
+
+FROM deps AS builder
+COPY . .
+RUN bun run --filter @foundjob/user-service build
+
+FROM oven/bun:latest AS runner
+WORKDIR /app
+ENV NODE_ENV=production
+COPY --from=builder /app .
+WORKDIR /app/services/user-service
+CMD ["bun", "run", "start"]

@@ -1,0 +1,17 @@
+FROM oven/bun:latest AS deps
+WORKDIR /app
+COPY package.json bun.lock* ./
+COPY services/resume-service/package.json services/resume-service/package.json
+COPY packages packages
+RUN bun install --frozen-lockfile
+
+FROM deps AS builder
+COPY . .
+RUN bun run --filter @foundjob/resume-service build
+
+FROM oven/bun:latest AS runner
+WORKDIR /app
+ENV NODE_ENV=production
+COPY --from=builder /app .
+WORKDIR /app/services/resume-service
+CMD ["bun", "run", "start"]

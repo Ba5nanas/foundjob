@@ -4,3 +4,7 @@ import { createMainControlClient } from "../../server/gateway/main-control.socke
 export async function listCompanies() {
   return createMainControlClient().request("/companies");
 }
+
+export async function getCompany(companyId: string) {
+  return createMainControlClient().request(`/companies/${companyId}`);
+}

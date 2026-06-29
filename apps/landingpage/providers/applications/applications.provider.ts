@@ -7,3 +7,7 @@ export async function applyToJob(input: { jobId: string; resumeId?: string }) {
     body: input
   });
 }
+
+export async function listCompanyJobApplications(jobId: string) {
+  return createMainControlClient().request(`/company/jobs/${jobId}/applications`);
+}

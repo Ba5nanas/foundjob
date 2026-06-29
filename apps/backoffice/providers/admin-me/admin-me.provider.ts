@@ -5,6 +5,10 @@ export async function getCurrentAdmin() {
   return createMainControlClient().request("/admin/me");
 }
 
+export async function updateCurrentAdmin(input: Record<string, unknown>) {
+  return createMainControlClient().request("/admin/me", { method: "PUT", body: input });
+}
+
 export async function updateCurrentAdminPassword(input: Record<string, unknown>) {
   return createMainControlClient().request("/admin/me/password", { method: "PUT", body: input });
 }

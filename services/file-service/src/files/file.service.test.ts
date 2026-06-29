@@ -13,6 +13,26 @@ describe("FileService", () => {
     expect(url).toBe("/public/company/logo.png");
   });
 
+  it("normalizes relative public paths", () => {
+    const url = new FileService().resolvePublicUrl({
+      visibility: FileVisibility.PUBLIC,
+      publicPath: "company/logo.png",
+      localPath: "/data/files/public/company/logo.png"
+    });
+
+    expect(url).toBe("/public/company/logo.png");
+  });
+
+  it("does not resolve protected files to public URLs", () => {
+    expect(() =>
+      new FileService().resolvePublicUrl({
+        visibility: FileVisibility.PRIVATE,
+        publicPath: null,
+        localPath: "/data/files/private/file_002"
+      })
+    ).toThrow("Only public files can be resolved to public URLs");
+  });
+
   it("does not expose local paths for protected files", () => {
     expect(
       new FileService().toProtectedDescriptor({

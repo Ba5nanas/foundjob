@@ -1,0 +1,22 @@
+model Application {
+  id            String            @id @default(cuid())
+  jobId         String
+  companyId     String
+  seekerUserId  String
+  resumeFileId  String?
+  coverLetter   String?
+  status        ApplicationStatus @default(APPLIED)
+  appliedAt     DateTime          @default(now())
+  reviewedAt    DateTime?
+  shortlistedAt DateTime?
+  interviewedAt DateTime?
+  offeredAt     DateTime?
+  hiredAt       DateTime?
+  rejectedAt    DateTime?
+  cancelledAt   DateTime?
+  updatedAt     DateTime          @updatedAt
+
+  @@index([jobId, status])
+  @@index([companyId, status])
+  @@index([seekerUserId, appliedAt])
+}

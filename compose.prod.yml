@@ -52,6 +52,114 @@ services:
     networks:
       - foundjob
 
+  foundjob-auth-service:
+    build:
+      context: .
+      dockerfile: services/auth-service/Dockerfile.prod
+    container_name: foundjob-auth-service
+    env_file:
+      - .env.example
+    volumes:
+      - foundjob-sockets:/var/run/foundjob
+    networks:
+      - foundjob
+
+  foundjob-user-service:
+    build:
+      context: .
+      dockerfile: services/user-service/Dockerfile.prod
+    container_name: foundjob-user-service
+    env_file:
+      - .env.example
+    volumes:
+      - foundjob-sockets:/var/run/foundjob
+    networks:
+      - foundjob
+
+  foundjob-company-service:
+    build:
+      context: .
+      dockerfile: services/company-service/Dockerfile.prod
+    container_name: foundjob-company-service
+    env_file:
+      - .env.example
+    volumes:
+      - foundjob-sockets:/var/run/foundjob
+    networks:
+      - foundjob
+
+  foundjob-job-service:
+    build:
+      context: .
+      dockerfile: services/job-service/Dockerfile.prod
+    container_name: foundjob-job-service
+    env_file:
+      - .env.example
+    volumes:
+      - foundjob-sockets:/var/run/foundjob
+    networks:
+      - foundjob
+
+  foundjob-application-service:
+    build:
+      context: .
+      dockerfile: services/application-service/Dockerfile.prod
+    container_name: foundjob-application-service
+    env_file:
+      - .env.example
+    volumes:
+      - foundjob-sockets:/var/run/foundjob
+    networks:
+      - foundjob
+
+  foundjob-resume-service:
+    build:
+      context: .
+      dockerfile: services/resume-service/Dockerfile.prod
+    container_name: foundjob-resume-service
+    env_file:
+      - .env.example
+    volumes:
+      - foundjob-sockets:/var/run/foundjob
+    networks:
+      - foundjob
+
+  foundjob-appointment-service:
+    build:
+      context: .
+      dockerfile: services/appointment-service/Dockerfile.prod
+    container_name: foundjob-appointment-service
+    env_file:
+      - .env.example
+    volumes:
+      - foundjob-sockets:/var/run/foundjob
+    networks:
+      - foundjob
+
+  foundjob-package-service:
+    build:
+      context: .
+      dockerfile: services/package-service/Dockerfile.prod
+    container_name: foundjob-package-service
+    env_file:
+      - .env.example
+    volumes:
+      - foundjob-sockets:/var/run/foundjob
+    networks:
+      - foundjob
+
+  foundjob-backoffice-service:
+    build:
+      context: .
+      dockerfile: services/backoffice-service/Dockerfile.prod
+    container_name: foundjob-backoffice-service
+    env_file:
+      - .env.example
+    volumes:
+      - foundjob-sockets:/var/run/foundjob
+    networks:
+      - foundjob
+
   foundjob-file-service:
     build:
       context: .

@@ -24,6 +24,16 @@ export default async function EditAdminUserPage({ params }: { params: Promise<{ 
               <span className="bo-chip">ACTIVE</span>
             </div>
           </label>
+          <div className="bo-label">
+            Role permissions preview
+            <div className="bo-readonly-preview" aria-label="Permissions inherited from selected role">
+              <span className="bo-chip">admin_users.view</span>
+              <span className="bo-chip">admin_users.create</span>
+              <span className="bo-chip">roles.assign_permissions</span>
+              <span className="bo-chip">audit_logs.view</span>
+            </div>
+            <span className="bo-field-note">Inherited from SUPERADMIN. Change permissions from Roles / Role permissions.</span>
+          </div>
           <label className="bo-label">Access note<textarea className="bo-textarea" defaultValue="Owns backoffice setup and role policy changes." name="note" /></label>
           <button className="bo-button bo-button-primary" type="submit">Save admin demo</button>
         </form>

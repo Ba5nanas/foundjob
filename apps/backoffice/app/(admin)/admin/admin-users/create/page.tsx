@@ -22,13 +22,15 @@ export default function CreateAdminUserPage() {
               <span className="bo-chip">ACTIVE</span>
             </div>
           </label>
-          <label className="bo-label">
-            Required permissions
-            <div className="bo-combobox" role="button" tabIndex={0} aria-label="Permission preview">
+          <div className="bo-label">
+            Role permissions preview
+            <div className="bo-readonly-preview" aria-label="Permissions inherited from selected role">
               <span className="bo-chip">admin_users.view</span>
               <span className="bo-chip">audit_logs.view</span>
+              <span className="bo-chip">users.view</span>
             </div>
-          </label>
+            <span className="bo-field-note">Inherited from SUPPORT. Change permissions from Roles / Role permissions.</span>
+          </div>
           <label className="bo-label">Admin note<textarea className="bo-textarea" name="note" placeholder="Reason for access, team, or scope limit" /></label>
           <button className="bo-button bo-button-primary" type="submit">Create admin demo</button>
         </form>
